@@ -1,736 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhanesh P P | Portfolio</title>
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Segoe UI',sans-serif;
-      background:#f5f7fb;
-      color:#1f2937;
-      line-height:1.6;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    section{
-      padding:80px 0;
-    }
-
-    /* HERO SECTION */
-
-    .hero{
-      min-height:100vh;
-      background:white;
-      display:flex;
-      align-items:center;
-      position:relative;
-      overflow:hidden;
-      border-bottom:1px solid #e5e7eb;
-    }
-
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:420px;
-      height:420px;
-      background:#bfdbfe;
-      border-radius:50%;
-      top:-180px;
-      left:-120px;
-      filter:blur(70px);
-      opacity:0.7;
-    }
-
-    .hero-content{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-      position:relative;
-      z-index:2;
-    }
-
-    .badge{
-      display:inline-block;
-      background:#dbeafe;
-      color:#2563eb;
-      padding:10px 18px;
-      border-radius:30px;
-      font-size:13px;
-      font-weight:600;
-      margin-bottom:22px;
-    }
-
-    .hero h1{
-      font-size:52px;
-      line-height:1.1;
-      color:#111827;
-      margin-bottom:20px;
-    }
-
-    .hero p{
-      font-size:16px;
-      line-height:1.8;
-      color:#6b7280;
-      max-width:550px;
-      margin-bottom:35px;
-    }
-
-    .buttons{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:13px 26px;
-      border-radius:14px;
-      font-size:15px;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
-    }
-
-    .btn-primary{
-      background:#2563eb;
-      color:white;
-      box-shadow:0 10px 25px rgba(37,99,235,0.18);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px);
-    }
-
-    .btn-secondary{
-      border:1px solid #d1d5db;
-      background:white;
-      color:#111827;
-    }
-
-    .btn-secondary:hover{
-      background:#f3f4f6;
-    }
-
-    /* PROFILE IMAGE */
-
-    .hero-image{
-      display:flex;
-      justify-content:center;
-    }
-
-    .image-card{
-      width:260px;
-      height:340px;
-      padding:8px;
-      border-radius:30px;
-      background:linear-gradient(135deg,#2563eb,#bfdbfe);
-      box-shadow:0 20px 40px rgba(0,0,0,0.15);
-      overflow:hidden;
-      margin:auto;
-    }
-
-    .image-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:top center;
-      border-radius:22px;
-    }
-
-    /* SECTION TITLE */
-
-    .section-title{
-      text-align:center;
-      font-size:34px;
-      margin-bottom:50px;
-      color:#111827;
-    }
-
-    /* ABOUT */
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-      align-items:start;
-    }
-
-    .card{
-      background:white;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:35px;
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 15px 35px rgba(0,0,0,0.07);
-    }
-
-    .card h3{
-      font-size:24px;
-      margin-bottom:18px;
-      color:#111827;
-    }
-
-    .card p{
-      font-size:15px;
-      line-height:1.8;
-      color:#6b7280;
-    }
-
-    /* CONTACT CARD DOWNWARD */
-
-    .contact-card{
-      margin-top:140px;
-    }
-
-    /* EXPERIENCE */
-
-    .experience{
-      background:white;
-      border-top:1px solid #e5e7eb;
-      border-bottom:1px solid #e5e7eb;
-    }
-
-    .experience-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-    }
-
-    .experience-card{
-      background:#fafcff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:35px;
-      transition:0.3s;
-    }
-
-    .experience-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 15px 35px rgba(0,0,0,0.07);
-    }
-
-    .experience-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:14px;
-    }
-
-    .experience-header h3{
-      font-size:22px;
-      color:#111827;
-    }
-
-    .tag{
-      background:#dbeafe;
-      color:#2563eb;
-      padding:6px 14px;
-      border-radius:20px;
-      font-size:12px;
-      font-weight:600;
-      white-space:nowrap;
-    }
-
-    .location{
-      color:#9ca3af;
-      font-size:14px;
-      margin-bottom:18px;
-    }
-
-    .experience-card ul{
-      padding-left:20px;
-    }
-
-    .experience-card li{
-      font-size:15px;
-      line-height:1.8;
-      color:#4b5563;
-      margin-bottom:12px;
-    }
-
-    /* SKILLS */
-
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:16px;
-    }
-
-    .skill{
-      background:white;
-      border:1px solid #e5e7eb;
-      border-radius:16px;
-      padding:13px 22px;
-      font-size:14px;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    .skill:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 20px rgba(0,0,0,0.06);
-    }
-
-    /* EDUCATION */
-
-    .education{
-      background:white;
-      border-top:1px solid #e5e7eb;
-      border-bottom:1px solid #e5e7eb;
-      padding-top:30px;
-      padding-bottom:40px;
-    }
-
-    .education-card{
-      max-width:700px;
-      margin:auto;
-      background:#fafcff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:45px;
-      text-align:center;
-    }
-
-    .education-card h3{
-      font-size:26px;
-      margin-bottom:15px;
-      color:#111827;
-    }
-
-    .education-card p{
-      font-size:16px;
-      color:#6b7280;
-      margin-bottom:8px;
-    }
-
-    /* PROJECT */
-
-    .project-card{
-      background:white;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:45px;
-    }
-
-    .project-card h3{
-      font-size:28px;
-      margin-bottom:20px;
-      color:#111827;
-    }
-
-    .project-card p{
-      font-size:16px;
-      line-height:1.8;
-      color:#6b7280;
-      margin-bottom:28px;
-    }
-
-    .project-features{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .feature{
-      background:#eff6ff;
-      border:1px solid #dbeafe;
-      border-radius:20px;
-      padding:24px;
-      font-size:15px;
-      line-height:1.7;
-      color:#374151;
-    }
-
-    /* FOOTER */
-
-    footer{
-      background:#111827;
-      color:white;
-      padding:40px 0;
-      margin-top:40px;
-    }
-
-    .footer-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:20px;
-    }
-
-    .footer-content h3{
-      font-size:22px;
-      margin-bottom:8px;
-    }
-
-    .footer-content p{
-      font-size:14px;
-      color:#9ca3af;
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:900px){
-
-      .hero-content,
-      .about-grid,
-      .experience-grid,
-      .project-features{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        padding-top:120px;
-        padding-bottom:70px;
-      }
-
-      .hero h1{
-        font-size:42px;
-      }
-
-      .section-title{
-        font-size:30px;
-      }
-
-      .contact-card{
-        margin-top:0;
-      }
-
-      .image-card{
-        width:230px;
-        height:300px;
-      }
-
-      .footer-content{
-        justify-content:center;
-        text-align:center;
-      }
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhanesh P P | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!-- HERO -->
+<nav class="navbar">
+    <div class="logo">Dhanesh P P</div>
 
-  <section class="hero">
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <div class="container hero-content">
+<section class="hero">
 
-      <div>
+    <div class="hero-content">
 
-        <div class="badge">
-          Integrated MCA Student
-        </div>
+        <span class="badge">AI/ML Intern • Full Stack Developer</span>
 
-        <h1>DHANESH P P</h1>
+        <h1>Dhanesh P P</h1>
+
+        <h2>
+            Integrated MCA Student
+        </h2>
 
         <p>
-          Versatile Integrated MCA student with hands-on experience
-          in full-stack development using React and Python,
-          complemented by UI/UX design expertise in Figma and
-          a strong passion for cybersecurity.
+            Passionate about Artificial Intelligence, Machine Learning,
+            Full Stack Development and Cybersecurity. Building
+            intelligent, scalable and impactful software solutions.
         </p>
 
-        <div class="buttons">
+        <div class="hero-buttons">
 
-          <a href="mailto:dhaneshpradeep14@gmail.com" class="btn btn-primary">
-            Contact Me
-          </a>
+            <a href="mailto:dhaneshpradeep14@gmail.com" class="btn primary">
+                Contact Me
+            </a>
 
-          <a href="https://www.linkedin.com/in/dhanesh-p-p-a746a3253"
-             target="_blank"
-             class="btn btn-secondary">
-            LinkedIn
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- PROFILE IMAGE -->
-
-      <div class="hero-image">
-
-        <div class="image-card">
-
-          <!-- Replace with your 1152x2048 image -->
-          <img src="sample.jpg" alt="Profile Image">
+            <a href="https://www.linkedin.com/in/dhanesh-p-p-a746a3253"
+               target="_blank"
+               class="btn secondary">
+                LinkedIn
+            </a>
 
         </div>
-
-      </div>
 
     </div>
 
-  </section>
+    <div class="hero-image">
+        <img src="sample.jpg" alt="Dhanesh">
+    </div>
 
-  <!-- ABOUT -->
+</section>
 
-  <section>
+<section id="about" class="section">
 
-    <div class="container about-grid">
+    <h2 class="title">About Me</h2>
 
-      <div class="card">
-
-        <h3>About Me</h3>
-
-        <p>
-          I possess strong problem-solving and debugging skills,
-          enhanced by leadership roles in IEEE and NCC.
-          My disciplined and goal-oriented mindset helps me
-          take on new challenges in technology and continuously improve my skills.
-        </p>
-
-      </div>
-
-      <!-- CONTACT CARD -->
-
-      <div class="card contact-card">
-
-        <h3>Contact</h3>
-
-        <p><strong>Phone:</strong> 8139087642</p>
-        <br>
-
-        <p><strong>Email:</strong> dhaneshpradeep14@gmail.com</p>
-        <br>
-
-        <p><strong>Location:</strong> Kerala, India</p>
-        <br>
+    <div class="card">
 
         <p>
-          <strong>LinkedIn:</strong>
-
-          <a href="https://www.linkedin.com/in/dhanesh-p-p-a746a3253"
-             target="_blank"
-             style="color:#2563eb;">
-            View Profile
-          </a>
+            Motivated Integrated MCA student at Saintgits College of Engineering
+            with hands-on experience in Artificial Intelligence, Machine Learning,
+            Full Stack Development and Cybersecurity. Skilled in Python, React,
+            JavaScript, PHP and database technologies. IEEE member with strong
+            analytical, debugging and problem-solving abilities, committed to
+            building innovative technology solutions.
         </p>
-
-      </div>
 
     </div>
 
-  </section>
+</section>
 
-  <!-- EXPERIENCE -->
+<section id="skills" class="section">
 
-  <section class="experience">
+    <h2 class="title">Skills</h2>
 
-    <div class="container">
+    <div class="skills">
 
-      <h2 class="section-title">Experience</h2>
+        <span>Python</span>
+        <span>AI/ML</span>
+        <span>React</span>
+        <span>JavaScript</span>
+        <span>PHP</span>
+        <span>Java</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>MySQL</span>
+        <span>Figma</span>
+        <span>GitHub</span>
+        <span>Cybersecurity</span>
 
-      <div class="experience-grid">
+    </div>
 
-        <div class="experience-card">
+</section>
 
-          <div class="experience-header">
+<section id="experience" class="section">
 
-            <h3>Full Stack Development Intern</h3>
+    <h2 class="title">Experience</h2>
 
-            <div class="tag">Present</div>
+    <div class="timeline">
 
-          </div>
-
-          <div class="location">
-            Kerala, India
-          </div>
-
-          <ul>
-
-            <li>
-              Developed responsive web applications using React.js
-              and backend technologies
-            </li>
-
-            <li>
-              Worked with APIs and improved debugging skills
-              in real-world workflows
-            </li>
-
-          </ul>
-
+        <div class="timeline-item">
+            <h3>AI/ML Intern</h3>
+            <span>NextGenPro, Palarivattom, Kochi</span>
+            <p>
+                Working on AI and Machine Learning projects,
+                model development and intelligent solutions.
+            </p>
         </div>
 
-        <div class="experience-card">
-
-          <div class="experience-header">
-
+        <div class="timeline-item">
             <h3>Python Full Stack Intern</h3>
+            <span>Kerala, India</span>
+            <p>
+                Built backend applications, APIs and database systems.
+            </p>
+        </div>
 
-            <div class="tag">Present</div>
+        <div class="timeline-item">
+            <h3>Full Stack Development Intern</h3>
+            <span>Kerala, India</span>
+            <p>
+                Developed responsive web applications using modern technologies.
+            </p>
+        </div>
 
-          </div>
+    </div>
 
-          <div class="location">
-            Kerala, India
-          </div>
+</section>
 
-          <ul>
+<section id="projects" class="section">
 
-            <li>
-              Built applications using Python technologies
-              and backend logic
-            </li>
+    <h2 class="title">Projects</h2>
 
-            <li>
-              Managed databases and application workflows
-            </li>
+    <div class="project-grid">
 
-          </ul>
+        <div class="project-card">
+
+            <h3>Vehicle Rental System</h3>
+
+            <p>
+                Developed a vehicle rental platform using
+                HTML, CSS, PHP and MySQL featuring authentication,
+                search, cart and checkout modules.
+            </p>
 
         </div>
 
-      </div>
-
     </div>
 
-  </section>
+</section>
 
-  <!-- SKILLS -->
+<footer id="contact">
 
-  <section>
+    <h2>Dhanesh P P</h2>
 
-    <div class="container">
+    <p>dhaneshpradeep14@gmail.com</p>
 
-      <h2 class="section-title">Skills</h2>
+    <p>Kerala, India</p>
 
-      <div class="skills">
-
-        <div class="skill">React</div>
-        <div class="skill">Python</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">PHP</div>
-        <div class="skill">Java</div>
-        <div class="skill">C/C++</div>
-        <div class="skill">Figma</div>
-        <div class="skill">Cybersecurity</div>
-        <div class="skill">GitHub</div>
-        <div class="skill">Ajax</div>
-        <div class="skill">Responsive Web</div>
-        <div class="skill">Wireframing</div>
-        <div class="skill">IEEE</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- EDUCATION -->
-
-  <section class="education">
-
-    <div class="container">
-
-      <h2 class="section-title">Education</h2>
-
-      <div class="education-card">
-
-        <h3>Saintgits College of Engineering</h3>
-
-        <p>Integrated MCA</p>
-
-        <p>08/2020 - 05/2023</p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PROJECT -->
-
-  <section>
-
-    <div class="container">
-
-      <h2 class="section-title">Projects</h2>
-
-      <div class="project-card">
-
-        <h3>Vehicle Rental System</h3>
-
-        <p>
-          Developed a vehicle rental platform using HTML,
-          CSS, PHP, and MySQL with login/register,
-          search, cart, and checkout modules.
-        </p>
-
-        <div class="project-features">
-
-          <div class="feature">
-            User-friendly interface design and optimized workflows
-          </div>
-
-          <div class="feature">
-            Full-stack implementation with database integration
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container footer-content">
-
-      <div>
-
-        <h3>DHANESH P P</h3>
-
-        <p>Integrated MCA Student</p>
-
-      </div>
-
-      <div>
-
-        <p>dhaneshpradeep14@gmail.com</p>
-
-        <p>Kerala, India</p>
-
-      </div>
-
-    </div>
-
-  </footer>
+</footer>
 
 </body>
 </html>
